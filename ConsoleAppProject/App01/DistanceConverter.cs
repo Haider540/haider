@@ -12,21 +12,22 @@ namespace ConsoleAppProject.App01
     {
         public const int FEET_IN_MILES = 5280;
 
-        public const double MILES_IN_MILES = 1609.34;
+        public const double METRES_IN_MILES = 1609.34;
 
         public const double FEET_IN_METRES = 3.28084;
 
         public const string FEET = "Feet";
         public const string METRES = "Metres";
         public const string MILES = "Miles";
-       
+        
+
         private double fromDistance;
         private double toDistance;
 
         private string fromUnit;
         private string toUnit;
 
-        public double METRES_IN_MILES { get; private set; }
+        public double FromDistance { get; private set; }
 
         public DistanceConverter()
         {
@@ -43,17 +44,29 @@ namespace ConsoleAppProject.App01
         public void ConverterDistance()
         {
             fromUnit = SelectUnit("please select the from distance unit>");
-            toUnit = SelectUnit("please select the to distance unit>");
+
 
             Console.WriteLine($"\n Converting {fromUnit} to {toUnit}");
             fromDistance = InputDistance("please enter the number of {fromUnit} > ");
             CalculateDistance();
-            OutPutDistance(fromDistance, fromUnit,toDistance, toUnit);
+            OutPutDistance(fromDistance, fromUnit, toDistance, toUnit);
+
+            do
+            {
+                toUnit = SelectUnit("please select the from distance unit > ");
+                Console.WriteLine("please enter the right option!");
+            } while (fromUnit != null);
+            do
+            {
+                toUnit = SelectUnit("please select the to distance unit > ");
+                Console.WriteLine("please enter the right option!");
+            } while (toUnit != null);
         }
+        
 
         private void CalculateDistance()
         {
-            if(fromUnit == MILES && toUnit == FEET)
+            if (fromUnit == MILES && toUnit == FEET)
             {
                 toDistance = fromDistance * FEET_IN_MILES;
             }
@@ -90,6 +103,7 @@ namespace ConsoleAppProject.App01
 
         private static string ExecuteChoice(string choice)
         {
+
             if (choice.Equals("1"))
             {
                 return FEET;
@@ -104,6 +118,8 @@ namespace ConsoleAppProject.App01
             }
             return null;
         }
+        
+        
 
         private static string DisplayChoices(string prompt)
         {
@@ -153,3 +169,4 @@ namespace ConsoleAppProject.App01
         }
     }
 }
+
