@@ -11,21 +11,47 @@ namespace ConsoleAppProject.App01
     public class DistanceConverter
     {
         public const int FEET_IN_MILES = 5280;
+        public const double FEET_IN_YARD = 3;
 
         public const double METRES_IN_MILES = 1609.34;
+        public const double METRES_IN_KILOMETRES = 1000;
 
         public const double FEET_IN_METRES = 3.28084;
+
+        public const double YARD_IN_MILES = 1760.0066;
+        public const double YARD_IN_METRES = 1.0936;
+        public const double YARD_IN_KILOMETRES = 1093.6133;
+
+        public const double CENTIMETRES_IN_FEET = 30.48;
+        public const double CENTIMETRES_IN_MILES = 160935;
+        public const double CENTIMETRES_IN_METRES = 100;
+        public const double CENTIMETRES_IN_KILOMETRES = 100000;
+        public const double CENTIMETRES_IN_YARDS = 91.44;
+
+        public const double INCH_IN_METRES = 39.3701;
+        public const double INCH_IN_KILOMETRES = 39370.078;
+        public const double INCH_IN_MILES = 63360.24;
+        public const double INCH_IN_FEET = 12;
+        public const double INCH_IN_YARD = 36;
+        public const double INCH_IN_CENTIMETRES = 0.3937;
+
+        public const double KILOMETRES_IN_METRES = 1000;
+        public const double KILOMETRES_IN_MILES = 1.609344;
+        public const double KILOMETRES_IN_FEET = 3280.8399;
 
         public const string FEET = "Feet";
         public const string METRES = "Metres";
         public const string MILES = "Miles";
-        
+        public const string KILOMETRES = "kilometres";
+        public const string YARD = "yard";
+        public const string CENTIMETRES = "centimetres";
+        public const string INCH = "inch";
 
-        private double fromDistance;
-        private double toDistance;
+        public double fromDistance;
+        public double toDistance;
 
-        private string fromUnit;
-        private string toUnit;
+        public string fromUnit;
+        public string toUnit;
 
         public double FromDistance { get; private set; }
 
@@ -43,7 +69,16 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void ConverterDistance()
         {
-            fromUnit = SelectUnit("please select the from distance unit>");
+            
+            OutputHeading();
+            do
+            {
+                fromUnit = SelectUnit("please select the from distance unit > ");
+            } while (fromUnit == null);
+            do
+            {
+                toUnit = SelectUnit("please select the to distance unit > ");
+            } while (toUnit == null);
 
 
             Console.WriteLine($"\n Converting {fromUnit} to {toUnit}");
@@ -51,20 +86,10 @@ namespace ConsoleAppProject.App01
             CalculateDistance();
             OutPutDistance(fromDistance, fromUnit, toDistance, toUnit);
 
-            do
-            {
-                toUnit = SelectUnit("please select the from distance unit > ");
-                Console.WriteLine("please enter the right option!");
-            } while (fromUnit != null);
-            do
-            {
-                toUnit = SelectUnit("please select the to distance unit > ");
-                Console.WriteLine("please enter the right option!");
-            } while (toUnit != null);
         }
         
 
-        private void CalculateDistance()
+        public void CalculateDistance()
         {
             if (fromUnit == MILES && toUnit == FEET)
             {
@@ -89,6 +114,107 @@ namespace ConsoleAppProject.App01
             else if (fromUnit == METRES && toUnit == FEET)
             {
                 toDistance = fromDistance / FEET_IN_METRES;
+            }
+
+            ///NEW UNIT KILOMETRES:
+            if (fromUnit == METRES && toUnit == KILOMETRES)
+            {
+                toDistance = fromDistance / METRES_IN_KILOMETRES;
+            }
+
+            else if (fromUnit == KILOMETRES && toUnit == METRES)
+            {
+                toDistance = fromDistance * METRES_IN_KILOMETRES;
+            }
+
+            else if (fromUnit == KILOMETRES && toUnit == MILES)
+            {
+                toDistance = fromDistance / KILOMETRES_IN_MILES;
+            }
+
+            else if (fromUnit == MILES && toUnit == KILOMETRES)
+            {
+                toDistance = fromDistance * KILOMETRES_IN_MILES;
+            }
+
+            else if (fromUnit == KILOMETRES && toUnit == FEET)
+            {
+                toDistance = fromDistance / KILOMETRES_IN_FEET;
+            }
+
+            else if (fromUnit == FEET && toUnit == KILOMETRES)
+            {
+                toDistance = fromDistance * KILOMETRES_IN_FEET;
+            }
+
+            ///NEW UNIT YARD:
+            if (fromUnit == YARD && toUnit == FEET)
+            {
+                toDistance = fromDistance * FEET_IN_YARD;
+            }
+
+            else if (fromUnit == FEET && toUnit == YARD)
+            {
+                toDistance = fromDistance / FEET_IN_YARD;
+            }
+            else if (fromUnit == YARD && toUnit == MILES)
+            {
+                toDistance = fromDistance / YARD_IN_MILES;
+            }
+            else if (fromUnit == MILES && toUnit == YARD)
+            {
+                toDistance = fromDistance * YARD_IN_MILES;
+            }
+            else if (fromUnit == YARD && toUnit == METRES)
+            {
+                toDistance = fromDistance / YARD_IN_METRES;
+            }
+            else if (fromUnit == METRES && toUnit == YARD)
+            {
+                toDistance = fromDistance * YARD_IN_METRES;
+            }
+            else if (fromUnit == YARD && toUnit == KILOMETRES)
+            {
+                toDistance = fromDistance / YARD_IN_KILOMETRES;
+            }
+            else if (fromUnit == KILOMETRES && toUnit == YARD)
+            {
+                toDistance = fromDistance * YARD_IN_KILOMETRES;
+            }
+
+            ///NEW UNIT CENTIMETRES:
+            ///
+            if (fromUnit == CENTIMETRES && toUnit == FEET)
+            {
+                toDistance = fromDistance / CENTIMETRES_IN_FEET;
+            }
+            else if (fromUnit == FEET && toUnit == CENTIMETRES)
+            {
+                toDistance = fromDistance * CENTIMETRES_IN_FEET;
+            }
+            else if (fromUnit == CENTIMETRES && toUnit == MILES)
+            {
+                toDistance = fromDistance / CENTIMETRES_IN_MILES;
+            }
+            else if (fromUnit == MILES && toUnit == CENTIMETRES)
+            {
+                toDistance = fromDistance * CENTIMETRES_IN_MILES;
+            }
+            else if (fromUnit == CENTIMETRES && toUnit == METRES)
+            {
+                toDistance = fromDistance / CENTIMETRES_IN_METRES;
+            }
+            else if (fromUnit == METRES && toUnit == CENTIMETRES)
+            {
+                toDistance = fromDistance * CENTIMETRES_IN_METRES;
+            }
+            else if (fromUnit == CENTIMETRES && toUnit == KILOMETRES)
+            {
+                toDistance = fromDistance / CENTIMETRES_IN_KILOMETRES;
+            }
+            else if (fromUnit == KILOMETRES && toUnit == CENTIMETRES)
+            {
+                toDistance = fromDistance * CENTIMETRES_IN_KILOMETRES;
             }
         }
 
@@ -116,8 +242,26 @@ namespace ConsoleAppProject.App01
             {
                 return MILES;
             }
+            else if (choice.Equals("4"))
+            {
+                return KILOMETRES;
+            }
+            else if (choice.Equals("5"))
+            {
+                return CENTIMETRES;
+            }
+            else if (choice.Equals("6"))
+            {
+                return YARD;
+            }
+
+            else if (choice.Equals("7"))
+            {
+                return INCH;
+            
+            }
             return null;
-        }
+            }
         
         
 
@@ -127,6 +271,9 @@ namespace ConsoleAppProject.App01
             Console.WriteLine($" 1. {FEET}");
             Console.WriteLine($" 2. {METRES}");
             Console.WriteLine($" 3. {MILES}");
+            Console.WriteLine($" 4. {KILOMETRES}");
+            Console.WriteLine($" 5. {CENTIMETRES}");
+            Console.WriteLine($" 6. {YARD}");
 
             Console.WriteLine(prompt);
             string choice = Console.ReadLine();
