@@ -13,17 +13,17 @@ namespace ConsoleAppProject.App01
         public const int FEET_IN_MILES = 5280;
         public const double FEET_IN_YARD = 3;
 
-        public const double METRES_IN_MILES = 1609.34;
+        public const double METRES_IN_MILES = 1609.344;
         public const double METRES_IN_KILOMETRES = 1000;
 
-        public const double FEET_IN_METRES = 3.28084;
+        public const double FEET_IN_METRES = 3.2808399;
 
-        public const double YARD_IN_MILES = 1760.0066;
-        public const double YARD_IN_METRES = 1.0936;
+        public const double YARD_IN_MILES = 1760;
+        public const double YARD_IN_METRES = 1.0936133;
         public const double YARD_IN_KILOMETRES = 1093.6133;
 
         public const double CENTIMETRES_IN_FEET = 30.48;
-        public const double CENTIMETRES_IN_MILES = 160935;
+        public const double CENTIMETRES_IN_MILES = 160934.4;
         public const double CENTIMETRES_IN_METRES = 100;
         public const double CENTIMETRES_IN_KILOMETRES = 100000;
         public const double CENTIMETRES_IN_YARDS = 91.44;
@@ -82,7 +82,7 @@ namespace ConsoleAppProject.App01
 
 
             Console.WriteLine($"\n Converting {fromUnit} to {toUnit}");
-            fromDistance = InputDistance("please enter the number of {fromUnit} > ");
+            fromDistance = InputDistance($"please enter the number of {fromUnit} > ");
             CalculateDistance();
             OutPutDistance(fromDistance, fromUnit, toDistance, toUnit);
 

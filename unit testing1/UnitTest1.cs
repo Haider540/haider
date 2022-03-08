@@ -38,8 +38,8 @@ namespace unit_testing1
 
             converter.fromDistance = 2.0;
             converter.CalculateDistance();
-            double expectedDistance = 3218.69;
-            Assert.AreEqual(expectedDistance, converter.toDistance);
+            double expectedDistance = 3218;
+            Assert.AreEqual(expectedDistance,(int)converter.toDistance);
         }
         [TestMethod]
         public void TestMetresToMiles()
@@ -50,8 +50,8 @@ namespace unit_testing1
 
             converter.fromDistance = 3218.69;
             converter.CalculateDistance();
-            double expectedDistance = 2.0;
-            Assert.AreEqual(expectedDistance, converter.toDistance);
+            double expectedDistance = 2;
+            Assert.AreEqual(expectedDistance, (int)converter.toDistance);
         }
         [TestMethod]
         public void TestMetresToFeet()
@@ -62,8 +62,8 @@ namespace unit_testing1
 
             converter.fromDistance = 2.0;
             converter.CalculateDistance();
-            double expectedDistance = 6.56168;
-            Assert.AreEqual(expectedDistance, converter.toDistance);
+            double expectedDistance = 6.5616798;
+            Assert.AreEqual(expectedDistance, (int)converter.toDistance);
         }
         [TestMethod]
         public void TestFeetToMetres()
@@ -75,7 +75,7 @@ namespace unit_testing1
             converter.fromDistance = 6.56168;
             converter.CalculateDistance();
             double expectedDistance = 2.0;
-            Assert.AreEqual(expectedDistance, converter.toDistance);
+            Assert.AreEqual(expectedDistance, (int)converter.toDistance);
         }
 
 
