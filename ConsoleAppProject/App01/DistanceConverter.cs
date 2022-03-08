@@ -227,7 +227,7 @@ namespace ConsoleAppProject.App01
             return unit;
         }
 
-        private static string ExecuteChoice(string choice)
+        public static string ExecuteChoice(string choice)
         {
 
             if (choice.Equals("1"))
@@ -286,7 +286,7 @@ namespace ConsoleAppProject.App01
         /// prompt the user to enter the distance in miles
         /// Input the miles as a two digit number
         /// </summary>
-        private double InputDistance(string prompt)
+        public double InputDistance(string prompt)
         {
             Console.Write(prompt);
             string value = Console.ReadLine();
@@ -296,7 +296,7 @@ namespace ConsoleAppProject.App01
         /// <summary>
         /// 
         /// </summary>
-        private void OutPutDistance(
+        public void OutPutDistance(
             double fromDistance, string fromUnit,
             double toDistance, string toUnit)
         {
