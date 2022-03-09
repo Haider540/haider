@@ -69,7 +69,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void ConverterDistance()
         {
-            
+
             OutputHeading();
             do
             {
@@ -87,7 +87,7 @@ namespace ConsoleAppProject.App01
             OutPutDistance(fromDistance, fromUnit, toDistance, toUnit);
 
         }
-        
+
 
         public void CalculateDistance()
         {
@@ -227,7 +227,7 @@ namespace ConsoleAppProject.App01
             return unit;
         }
 
-        public static string ExecuteChoice(string choice)
+        private static string ExecuteChoice(string choice)
         {
 
             if (choice.Equals("1"))
@@ -258,12 +258,12 @@ namespace ConsoleAppProject.App01
             else if (choice.Equals("7"))
             {
                 return INCH;
-            
+
             }
             return null;
-            }
-        
-        
+        }
+
+
 
         private static string DisplayChoices(string prompt)
         {
@@ -286,7 +286,7 @@ namespace ConsoleAppProject.App01
         /// prompt the user to enter the distance in miles
         /// Input the miles as a two digit number
         /// </summary>
-        public double InputDistance(string prompt)
+        private double InputDistance(string prompt)
         {
             Console.Write(prompt);
             string value = Console.ReadLine();
@@ -294,18 +294,18 @@ namespace ConsoleAppProject.App01
         }
 
         /// <summary>
-        /// 
+        /// this is the outputdistance.
         /// </summary>
-        public void OutPutDistance(
+        private void OutPutDistance(
             double fromDistance, string fromUnit,
             double toDistance, string toUnit)
         {
             Console.WriteLine($" {fromDistance} {fromUnit} is {toDistance} {toUnit}!");
         }
         ///<summary>
-        ///
+        /// this is for when run it will show what it is for.
         /// </summary>
-      
+
         private void OutputHeading()
         {
             Console.WriteLine("\n-------------------------------");
@@ -316,4 +316,3 @@ namespace ConsoleAppProject.App01
         }
     }
 }
-
