@@ -74,7 +74,7 @@ namespace ConsoleAppProject.App02
             }
             else if (Choice == "2")
             {
-                return "metric";
+                return "Metric";
             }
             else
             {
