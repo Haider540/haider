@@ -6,8 +6,8 @@ using ConsoleAppProject.Helpers;
 namespace ConsoleAppProject.App03
 {
     /// <summary>
-    /// class just tests the
-    /// Grades enumeration names and the descriptions
+    /// At the moment this class just tests the
+    /// Grades enumeration names and descriptions
     /// </summary>
     public class StudentGrades
     {
@@ -185,7 +185,5 @@ namespace ConsoleAppProject.App03
                 Gradeprofile[i] = Gradeprofile[i] * 100 / NUMBEROFSTUDENTS;
             }
         }
-
-
     }
 }

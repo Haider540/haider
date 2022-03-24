@@ -28,10 +28,35 @@ namespace ConsoleAppProject
             Console.WriteLine();
             Console.Beep();
 
-            //DistanceConverter converter = new DistanceConverter();
-            //converter.ConverterDistance();
-            BMI bmi = new Run();
-            bmi.Run();
+            SelectApp();
+
+        }
+
+        // User selects the app which they want to use 
+        private static void SelectApp()
+        {
+            Console.WriteLine("Which app do you want to select? : ");
+            string[] choices = { "Distance Converter", "BMI Calculator", "Student Marks" };
+            int choice = ConsoleHelper.SelectChoice(choices);
+
+       //first app
+            if (choice == 1)
+            {
+                DistanceConverter converter = new DistanceConverter();
+                converter.ConverterDistance();
+            }
+       //second app02
+            else if (choice == 2)
+            {
+                BMI bmi = new BMI();
+                bmi.Run();
+            }
+       //third app03
+            else
+            {
+                StudentGrades grades = new StudentGrades();
+                grades.Run();
+            }
         }
     }
 }
